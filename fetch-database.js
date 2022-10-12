@@ -42,7 +42,7 @@ function tampilData() {
                if (err) throw err
                connection.query(
                     `
-                    SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 5
+                    SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 1
                     `
                , (err, result) => {
                     
@@ -70,7 +70,51 @@ function tampilData() {
                
           })
      }
-     setTimeout(tampilData,  1000)   
+     // setTimeout(tampilData,  5000)
 }
 
-tampilData()
+
+function getId() {
+     // let tangkap = []
+     pool.getConnection(function(err, connection) {
+          if (err) throw err; // not connected!
+         
+          // Use the connection
+          connection.query('SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 1', function (error, results, fields) {
+               let data = 0
+
+               data = results[0]['id']
+               // tangkap[0] = data[0]
+          //   console.log(tangkap)
+            connection.release();
+         
+            // Handle error after the release.
+            if (error) throw error;
+          //   console.log(tangkap)
+            return test2(data)
+          });
+     });
+}
+
+// function test(x) {
+//      // console.log(x)
+//      test2(x)
+//      return x
+// }
+setInterval(function() {
+     getId()
+},  1000)
+// console.log(y)
+
+
+let id_prev = 0
+function test2(x) {
+     let id_now = x
+     if (id_now > id_prev) {
+          console.log('data baru')
+          tampilData()
+     }
+     id_prev = id_now
+     // setInterval(test2, 1000)
+     // setTimeout(test2,  1000)
+}
