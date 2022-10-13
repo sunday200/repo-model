@@ -35,14 +35,7 @@ async function loadModel(sensor1, sensor2, sensor3, sensor4, sensor5, sensor6) {
  }
  
 
-
-
-
-
 function ambilData() {
-     let arraySensor = []
-     
-     // for (let x = 1; x < 7; x++){
           pool.getConnection((err, connection) => {
                if (err) throw err
                connection.query(
@@ -54,26 +47,10 @@ function ambilData() {
                     if (err) throw err
                     console.log("masuk ambilData")
                     ambilNilai(result)
-                    
-                    // const data = []
-                    // for(let i in result) {
-                    //      data.push(result[i]['sensor' + x])
-                    // }
-
-                    // // console.log(data)
-                    // arraySensor[x-1] = data[0]
-
-                    // if (x == 6) {
-                    //      console.log(arraySensor)
-                    //      console.log(arraySensor.length)
-                    //      return loadModel(arraySensor[0], arraySensor[1], arraySensor[2], arraySensor[3], arraySensor[4], arraySensor[5], arraySensor[6])
-                    
-                    // }
                })
                
                connection.release()
           })
-     // }
 }
 
 function ambilNilai(result) {
@@ -81,7 +58,6 @@ function ambilNilai(result) {
      console.log('hehe')
      for (let x = 1; x< 7; x++){
           const data = []
-          // if (err) throw err
           for(let i in result) {
                data.push(result[i]['sensor' + x])
           } 
@@ -101,7 +77,6 @@ function ambilNilai(result) {
 
 
 function getId() {
-     // let tangkap = []
      pool.getConnection(function(err, connection) {
           if (err) throw err; // not connected!
          
@@ -110,27 +85,19 @@ function getId() {
                let data = 0
 
                data = results[0]['id']
-               // tangkap[0] = data[0]
           //   console.log(tangkap)
             connection.release();
          
             // Handle error after the release.
             if (error) throw error;
-          //   console.log(tangkap)
             return test2(data)
           });
      });
 }
 
-// function test(x) {
-//      // console.log(x)
-//      test2(x)
-//      return x
-// }
 setInterval(function() {
      getId()
 },  1000)
-// console.log(y)
 
 
 let id_prev = 0
@@ -141,6 +108,4 @@ function test2(x) {
           ambilData()
      }
      id_prev = id_now
-     // setInterval(test2, 1000)
-     // setTimeout(test2,  1000)
 }
