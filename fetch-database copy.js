@@ -23,6 +23,7 @@ async function loadModel(sensor1, sensor2, sensor3, sensor4, sensor5, sensor6) {
          const values = [klasifikasi];
          pool.query(insert, values, (err, results) => {
              if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
          });
      } else {
          const klasifikasi = 'Udara Kotor';
@@ -30,6 +31,7 @@ async function loadModel(sensor1, sensor2, sensor3, sensor4, sensor5, sensor6) {
          const values = [klasifikasi];
          pool.query(insert, values, (err, results) => {
              if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
          });
      }
  }
@@ -43,9 +45,7 @@ function ambilData() {
                     SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 1
                     `
                , (err, result) => {
-
                     if (err) throw err
-                    console.log("masuk ambilData")
                     ambilNilai(result)
                })
                
@@ -55,7 +55,6 @@ function ambilData() {
 
 function ambilNilai(result) {
      let arraySensor = []
-     console.log('hehe')
      for (let x = 1; x< 7; x++){
           const data = []
           for(let i in result) {
@@ -65,8 +64,7 @@ function ambilNilai(result) {
           arraySensor[x-1] = data[0]
 
           if (x == 6) {
-               console.log(arraySensor)
-               console.log(arraySensor.length)
+               // console.log(arraySensor)
                return loadModel(arraySensor[0], arraySensor[1], arraySensor[2], arraySensor[3], arraySensor[4], arraySensor[5], arraySensor[6])
           
           }
@@ -85,7 +83,6 @@ function getId() {
                let data = 0
 
                data = results[0]['id']
-          //   console.log(tangkap)
             connection.release();
          
             // Handle error after the release.
@@ -97,14 +94,14 @@ function getId() {
 
 setInterval(function() {
      getId()
-},  1000)
+},  1000) // per 1 detik
 
 
 let id_prev = 0
 function test2(x) {
      let id_now = x
      if (id_now > id_prev) {
-          console.log('data baruaada')
+          console.log(`id data baru : ${id_now}`)
           ambilData()
      }
      id_prev = id_now
