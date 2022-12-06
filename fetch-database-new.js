@@ -1,8 +1,6 @@
 const mysql = require('mysql');
 const config = require('./config');
 const pool = mysql.createPool(config);
-// const arima = require('arima')
-
 const tf = require('@tensorflow/tfjs');
 const tfnode = require('@tensorflow/tfjs-node');
 const dfd = require("danfojs-node");
@@ -12,9 +10,7 @@ async function loadModel(sensor1, sensor2, sensor3, sensor4, sensor5, sensor6) {
      const model = await tf.loadLayersModel(handler);
  
      data = { 'sensor1': [sensor1], 'sensor2': [sensor2], 'sensor3': [sensor3], 'sensor4': [sensor4], 'sensor5': [sensor5], 'sensor6': [sensor6] };
-     console.log(data)
- 
- 
+
      let df = new dfd.DataFrame(data)
      let tf_tensor = df.tensor
      if (model.predict(tf_tensor).dataSync()[0] == 1) {
@@ -36,19 +32,15 @@ async function loadModel(sensor1, sensor2, sensor3, sensor4, sensor5, sensor6) {
      }
  }
  
-
 function ambilData() {
           pool.getConnection((err, connection) => {
                if (err) throw err
                connection.query(
-                    `
-                    SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 1
-                    `
+                    `SELECT * FROM tangkap_sensor_industry ORDER BY id DESC LIMIT 1`
                , (err, result) => {
                     if (err) throw err
                     ambilNilai(result)
-               })
-               
+               })              
                connection.release()
           })
 }
@@ -64,9 +56,7 @@ function ambilNilai(result) {
           arraySensor[x-1] = data[0]
 
           if (x == 6) {
-               // console.log(arraySensor)
                return loadModel(arraySensor[0], arraySensor[1], arraySensor[2], arraySensor[3], arraySensor[4], arraySensor[5], arraySensor[6])
-          
           }
      }
 }
