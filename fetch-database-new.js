@@ -15,10 +15,10 @@ async function loadModel(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, sen
      let tf_tensor = df.tensor
 
      // console.log(model.predict(1,1,1,1,1,1))
-     console.log(model.predict(tf_tensor).dataSync()[0])
-     console.log(model.predict(tf_tensor).dataSync()[1])
-     console.log(model.predict(tf_tensor).dataSync()[2])
-     console.log(model.predict(tf_tensor).dataSync()[3])
+     // console.log(model.predict(tf_tensor).dataSync()[0])
+     // console.log(model.predict(tf_tensor).dataSync()[1])
+     // console.log(model.predict(tf_tensor).dataSync()[2])
+     // console.log(model.predict(tf_tensor).dataSync()[3])
 
      /*
 
