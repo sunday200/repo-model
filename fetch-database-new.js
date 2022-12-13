@@ -31,50 +31,50 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
      */
      let pred = model.predict(tf_tensor).dataSync()
      console.log(`hasil pred mentahan : ${pred}`)
-     // if (model.predict(tf_tensor).dataSync()[0] >= 0.5) {
-     //     const klasifikasi = 'Gas';
-     //     console.log(klasifikasi)
-     //     const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //     const values = [klasifikasi];
-     //     pool.query(insert, values, (err, results) => {
-     //         if (err) throw err;
-     //         console.log(`Prediksi: ${klasifikasi}`)
-     //     }
-     //     );
-     // } 
+     if (model.predict(tf_tensor).dataSync()[0] >= 0.5) {
+         const klasifikasi = 'Gas';
+         console.log(klasifikasi)
+         const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
+         const values = [klasifikasi];
+         pool.query(insert, values, (err, results) => {
+             if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
+         }
+         );
+     } 
 
-     // if (model.predict(tf_tensor).dataSync()[1] >= 0.5) {
-     //     const klasifikasi = 'Alkohol';
-     // //     console.log(klasifikasi)
-     //     const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //     const values = [klasifikasi];
-     //     pool.query(insert, values, (err, results) => {
-     //         if (err) throw err;
-     //         console.log(`Prediksi: ${klasifikasi}`)
-     //     });
-     // }
+     if (model.predict(tf_tensor).dataSync()[1] >= 0.5) {
+         const klasifikasi = 'Alkohol';
+         console.log(klasifikasi)
+         const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
+         const values = [klasifikasi];
+         pool.query(insert, values, (err, results) => {
+             if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
+         });
+     }
 
-     // if (model.predict(tf_tensor).dataSync()[2] >= 0.5) {
-     //      const klasifikasi = 'Asap';
-     //      // console.log(klasifikasi)
-     //      const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //      const values = [klasifikasi];
-     //      pool.query(insert, values, (err, results) => {
-     //          if (err) throw err;
-     //          console.log(`Prediksi: ${klasifikasi}`)
-     //      });
-     //  }
+     if (model.predict(tf_tensor).dataSync()[2] >= 0.5) {
+          const klasifikasi = 'Asap';
+          console.log(klasifikasi)
+          const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
+          const values = [klasifikasi];
+          pool.query(insert, values, (err, results) => {
+              if (err) throw err;
+              console.log(`Prediksi: ${klasifikasi}`)
+          });
+      }
 
-     //  if (model.predict(tf_tensor).dataSync()[3] >= 0.5) {
-     //      const klasifikasi = 'Udara Bersih';
-     //      // console.log(klasifikasi)
-     //      const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //      const values = [klasifikasi];
-     //      pool.query(insert, values, (err, results) => {
-     //          if (err) throw err;
-     //          console.log(`Prediksi: ${klasifikasi}`)
-     //      });
-     //  }
+      if (model.predict(tf_tensor).dataSync()[3] >= 0.5) {
+          const klasifikasi = 'Udara Bersih';
+          console.log(klasifikasi)
+          const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
+          const values = [klasifikasi];
+          pool.query(insert, values, (err, results) => {
+              if (err) throw err;
+              console.log(`Prediksi: ${klasifikasi}`)
+          });
+      }
  }
 
 async function loadModel2(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, sensor5_adc, sensor6_adc) {
@@ -103,50 +103,50 @@ async function loadModel2(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
      */
      let pred = model.predict(tf_tensor).dataSync()
      console.log(`hasil pred mentahan : ${pred}`)
-     // if (model.predict(tf_tensor).dataSync()[0] >= 0.5) {
-     //     const klasifikasi = 'Gas';
-     //     console.log(klasifikasi)
-     //     const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //     const values = [klasifikasi];
-     //     pool.query(insert, values, (err, results) => {
-     //         if (err) throw err;
-     //         console.log(`Prediksi: ${klasifikasi}`)
-     //     }
-     //     );
-     // } 
+     if (model.predict(tf_tensor).dataSync()[0] >= 0.5) {
+         const klasifikasi = 'Gas';
+         console.log(klasifikasi)
+         const insert = 'INSERT INTO klasifikasi_try_2 (hasil) VALUES (?)';
+         const values = [klasifikasi];
+         pool.query(insert, values, (err, results) => {
+             if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
+         }
+         );
+     } 
 
-     // if (model.predict(tf_tensor).dataSync()[1] >= 0.5) {
-     //     const klasifikasi = 'Alkohol';
-     // //     console.log(klasifikasi)
-     //     const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //     const values = [klasifikasi];
-     //     pool.query(insert, values, (err, results) => {
-     //         if (err) throw err;
-     //         console.log(`Prediksi: ${klasifikasi}`)
-     //     });
-     // }
+     if (model.predict(tf_tensor).dataSync()[1] >= 0.5) {
+         const klasifikasi = 'Alkohol';
+         console.log(klasifikasi)
+         const insert = 'INSERT INTO klasifikasi_try_2 (hasil) VALUES (?)';
+         const values = [klasifikasi];
+         pool.query(insert, values, (err, results) => {
+             if (err) throw err;
+             console.log(`Prediksi: ${klasifikasi}`)
+         });
+     }
 
-     // if (model.predict(tf_tensor).dataSync()[2] >= 0.5) {
-     //      const klasifikasi = 'Asap';
-     //      // console.log(klasifikasi)
-     //      const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //      const values = [klasifikasi];
-     //      pool.query(insert, values, (err, results) => {
-     //          if (err) throw err;
-     //          console.log(`Prediksi: ${klasifikasi}`)
-     //      });
-     //  }
+     if (model.predict(tf_tensor).dataSync()[2] >= 0.5) {
+          const klasifikasi = 'Asap';
+          console.log(klasifikasi)
+          const insert = 'INSERT INTO klasifikasi_try_2 (hasil) VALUES (?)';
+          const values = [klasifikasi];
+          pool.query(insert, values, (err, results) => {
+              if (err) throw err;
+              console.log(`Prediksi: ${klasifikasi}`)
+          });
+      }
 
-     //  if (model.predict(tf_tensor).dataSync()[3] >= 0.5) {
-     //      const klasifikasi = 'Udara Bersih';
-     //      // console.log(klasifikasi)
-     //      const insert = 'INSERT INTO klasifikasi_try (hasil) VALUES (?)';
-     //      const values = [klasifikasi];
-     //      pool.query(insert, values, (err, results) => {
-     //          if (err) throw err;
-     //          console.log(`Prediksi: ${klasifikasi}`)
-     //      });
-     //  }
+      if (model.predict(tf_tensor).dataSync()[3] >= 0.5) {
+          const klasifikasi = 'Udara Bersih';
+          console.log(klasifikasi)
+          const insert = 'INSERT INTO klasifikasi_try_2 (hasil) VALUES (?)';
+          const values = [klasifikasi];
+          pool.query(insert, values, (err, results) => {
+              if (err) throw err;
+              console.log(`Prediksi: ${klasifikasi}`)
+          });
+      }
  }
  
 
