@@ -77,11 +77,11 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
       }
  }
 
-async function loadModel2(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, sensor5_adc, sensor6_adc) {
-     const handler = tfnode.io.fileSystem('klasifikasi/new1/alat-2/model.json');     
+async function loadModel2(sensor1_adc, sensor2_adc, sensor3_adc,sensor5_adc) {
+     const handler = tfnode.io.fileSystem('klasifikasi/new2/alat-2/model.json');     
      const model = await tf.loadLayersModel(handler);
      
-     data = { 'sensor1_adc': [sensor1_adc], 'sensor2_adc': [sensor2_adc], 'sensor3_adc': [sensor3_adc], 'sensor4_adc': [sensor4_adc], 'sensor5_adc': [sensor5_adc], 'sensor6_adc': [sensor6_adc] };
+     data = { 'sensor1_adc': [sensor1_adc], 'sensor2_adc': [sensor2_adc], 'sensor3_adc': [sensor3_adc], 'sensor5_adc': [sensor5_adc]};
      
      console.log('nilai sensor 2:')
      console.log(data)
@@ -206,7 +206,7 @@ function ambilNilai2(result) {
 
           if (x == 6) {
                // return loadModel(978, 505, 2730, 3507, 2032, 10839)
-               return loadModel2(arraySensor[0], arraySensor[1], arraySensor[2], arraySensor[3], arraySensor[4], arraySensor[5], arraySensor[6])
+               return loadModel2(arraySensor[0], arraySensor[1], arraySensor[2], arraySensor[3], arraySensor[5],)
 
           }
      }
