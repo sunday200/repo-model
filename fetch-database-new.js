@@ -78,7 +78,7 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
  }
 
 async function loadModel2(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, sensor5_adc, sensor6_adc) {
-     const handler = tfnode.io.fileSystem('klasifikasi/alat-2/model.json');
+     const handler = tfnode.io.fileSystem('klasifikasi/old2/alat-2/model.json');
      const model = await tf.loadLayersModel(handler);
      
      data = { 'sensor1_adc': [sensor1_adc], 'sensor2_adc': [sensor2_adc], 'sensor3_adc': [sensor3_adc], 'sensor4_adc': [sensor4_adc], 'sensor5_adc': [sensor5_adc], 'sensor6_adc': [sensor6_adc] };
