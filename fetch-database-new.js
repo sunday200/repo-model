@@ -36,11 +36,11 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
          console.log(klasifikasi)
          const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
          const values = [klasifikasi];
-         pool.query(insert, values, (err, results) => {
-             if (err) throw err;
-             console.log(`Prediksi: ${klasifikasi}`)
-         }
-         );
+     //     pool.query(insert, values, (err, results) => {
+     //         if (err) throw err;
+     //         console.log(`Prediksi: ${klasifikasi}`)
+     //     }
+     //     );
      } 
 
      if (model.predict(tf_tensor).dataSync()[1] >= 0.5) {
@@ -48,10 +48,10 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
          console.log(klasifikasi)
          const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
          const values = [klasifikasi];
-         pool.query(insert, values, (err, results) => {
-             if (err) throw err;
-             console.log(`Prediksi: ${klasifikasi}`)
-         });
+     //     pool.query(insert, values, (err, results) => {
+     //         if (err) throw err;
+     //         console.log(`Prediksi: ${klasifikasi}`)
+     //     });
      }
 
      if (model.predict(tf_tensor).dataSync()[2] >= 0.5) {
@@ -59,10 +59,10 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
           console.log(klasifikasi)
           const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
           const values = [klasifikasi];
-          pool.query(insert, values, (err, results) => {
-              if (err) throw err;
-              console.log(`Prediksi: ${klasifikasi}`)
-          });
+          // pool.query(insert, values, (err, results) => {
+          //     if (err) throw err;
+          //     console.log(`Prediksi: ${klasifikasi}`)
+          // });
       }
 
       if (model.predict(tf_tensor).dataSync()[3] >= 0.5) {
@@ -70,10 +70,10 @@ async function loadModel1(sensor1_adc, sensor2_adc, sensor3_adc, sensor4_adc, se
           console.log(klasifikasi)
           const insert = 'INSERT INTO klasifikasi_try_1 (hasil) VALUES (?)';
           const values = [klasifikasi];
-          pool.query(insert, values, (err, results) => {
-              if (err) throw err;
-              console.log(`Prediksi: ${klasifikasi}`)
-          });
+          // pool.query(insert, values, (err, results) => {
+          //     if (err) throw err;
+          //     console.log(`Prediksi: ${klasifikasi}`)
+          // });
       }
  }
 
@@ -247,9 +247,9 @@ function getId2() {
      });
 }
 
-setInterval(function() {
-     getId2()
-},  1000) // per 1 detik
+// setInterval(function() {
+//      getId2()
+// },  1000) // per 1 detik
 
 setInterval(function() {
      getId()
